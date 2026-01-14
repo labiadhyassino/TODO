@@ -74,9 +74,14 @@ jobs:
           sleep 20
 
       - name: ZAP Baseline Scan
-        uses: zaproxy/action-baseline@v0.13.0
+        # On utilise Docker directement pour éviter le bug de l'action ZAP sur les artefacts
+        run: |
+          chmod 777 $(pwd)
+          docker run --rm -v $(pwd):/zap/wrk/:rw --network="host" ghcr.io/zaproxy/zaproxy:stable zap-baseline.py \
+            -t http://localhost:8080 -r report.html || true
+
+      - name: Upload ZAP Report
+        uses: actions/upload-artifact@v4
         with:
-          target: 'http://localhost:8080'
-          artifact_name: 'report'
-          fail_action: false
-          allow_issue_writing: false
+          name: security-report
+          path: report.html
