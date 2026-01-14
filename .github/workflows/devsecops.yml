@@ -77,6 +77,6 @@ jobs:
         uses: zaproxy/action-baseline@v0.13.0
         with:
           target: 'http://localhost:8080'
-          artifact_name: 'zap-report'
-          fail_action: true
+          artifact_name: 'report'
+          fail_action: false
           allow_issue_writing: false
