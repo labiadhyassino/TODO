@@ -1,4 +1,4 @@
-# Spring Boot Todo API
+# Spring Boot Todo API [![DevSecOps Pipeline](https://github.com/labiadhyassino/TODO/actions/workflows/devsecops.yml/badge.svg)](https://github.com/labiadhyassino/TODO/actions/workflows/devsecops.yml)
 
 Microservice minimaliste de gestion de tâches (Todo) développé avec Spring Boot, conçu avec une approche **DevSecOps** complète.
 
